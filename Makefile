@@ -3,9 +3,7 @@
 
 PORTNAME=	opendistroforelasticsearch
 PORTVERSION=	1.2.0
-PORTREVISION=	0
 CATEGORIES=	textproc java devel
-
 MASTER_SITES=	https://d3g5vo6xdbdb9a.cloudfront.net/tarball/opendistro-elasticsearch/
 
 MAINTAINER=	y@trombik.org
@@ -17,9 +15,9 @@ BUILD_DEPENDS=	jna>0:devel/jna
 RUN_DEPENDS=	bash>0:shells/bash \
 		jna>0:devel/jna
 
+USES=		cpe shebangfix
 CONFLICTS=	elasticsearch-[0-9]* elasticsearch2-[0-9]* elasticsearch5-[0-9]* elasticsearch6-[0-9]*
 
-USES=		cpe shebangfix
 NO_ARCH=	yes
 USE_JAVA=	yes
 NO_BUILD=	yes
