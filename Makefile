@@ -5,13 +5,11 @@ PORTNAME=	opendistroforelasticsearch
 PORTVERSION=	1.2.0
 PORTREVISION=	0
 CATEGORIES=	textproc java devel
-# curl https://d3g5vo6xdbdb9a.cloudfront.net/tarball/opendistro-elasticsearch/opendistroforelasticsearch-1.2.0.tar.gz -o opendistroforelasticsearch-1.2.0.tar.gz
 
 MASTER_SITES=	https://d3g5vo6xdbdb9a.cloudfront.net/tarball/opendistro-elasticsearch/
-#PKGNAMESUFFIX=	6
 
-MAINTAINER=	feld@FreeBSD.org
-COMMENT=	Full-text search engine for Java
+MAINTAINER=	y@trombik.org
+COMMENT=	Apache 2.0-licensed full-text search engine for Java
 
 LICENSE=	APACHE20
 

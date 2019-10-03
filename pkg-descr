@@ -1,4 +1,4 @@
-Elasticsearch aims to be a Distributed, RESTful, Search Engine built on top of
-Apache Lucene.
+An Apache 2.0-licensed distribution of Elasticsearch enhanced with enterprise
+security, alerting, SQL, and more.
 
-WWW: https://www.elastic.co/
+WWW: https://opendistro.github.io/for-elasticsearch/

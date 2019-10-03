@@ -1,6 +1,10 @@
 [
 { type: install
   message: <<EOM
+Open Distro for Elasticsearch is the community-driven, 100% open source
+distribution of Elasticsearch with advanced security, alerting, deep
+performance analysis, and more.
+
 Please see %%ETCDIR%% for sample versions of
 elasticsearch.yml and logging.yml.
 
