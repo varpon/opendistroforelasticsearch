@@ -22,7 +22,7 @@ NO_ARCH=	yes
 USE_JAVA=	yes
 NO_BUILD=	yes
 JAVA_VERSION=	1.8+
-USE_RC_SUBR=	${PORTNAME}
+USE_RC_SUBR=	elasticsearch
 SHEBANG_FILES=	bin/elasticsearch \
 		bin/elasticsearch-cli \
 		bin/elasticsearch-env \
