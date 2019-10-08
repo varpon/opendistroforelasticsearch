@@ -21,7 +21,7 @@ CONFLICTS=	elasticsearch-[0-9]* elasticsearch2-[0-9]* elasticsearch5-[0-9]* elas
 NO_ARCH=	yes
 USE_JAVA=	yes
 NO_BUILD=	yes
-JAVA_VERSION=	1.8+
+JAVA_VERSION=	11+
 USE_RC_SUBR=	elasticsearch
 SHEBANG_FILES=	bin/elasticsearch \
 		bin/elasticsearch-cli \
