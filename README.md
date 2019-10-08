@@ -6,7 +6,8 @@ FreeBSD port of Open Distro for Elasticsearch.
 
 * `portlint` is happy
 * `poudriere bulk` passed
+* the package is being tested
 
 ## TODOs
 
-* deploy the package to the development environment
+* document how to try the port
