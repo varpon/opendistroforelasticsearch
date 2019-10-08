@@ -17,6 +17,7 @@
 #               Set it to required group.
 # elasticsearch_config (path):   Set to %%PREFIX%%/etc/elasticsearch/elasticsearch.yml by default.
 #               Set it to the config file location.
+# elasticsearch_java_home (path): Path to $JAVA_HOME. Set to %%PREFIX%% by default.
 #
 . /etc/rc.subr
 
