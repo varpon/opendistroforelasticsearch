@@ -18,7 +18,8 @@
 # elasticsearch_config (path):   Set to %%PREFIX%%/etc/elasticsearch/elasticsearch.yml by default.
 #               Set it to the config file location.
 # elasticsearch_java_home (path): Path to $JAVA_HOME. Set to %%PREFIX%% by default.
-#
+# elasticsearch_startup_sleep_time (number in sec): value of ES_STARTUP_SLEEP_TIME
+#               The default it 5
 . /etc/rc.subr
 
 name=elasticsearch
@@ -32,6 +33,7 @@ load_rc_config ${name}
 : ${elasticsearch_config=%%PREFIX%%/etc/elasticsearch}
 : ${elasticsearch_login_class=root}
 : ${elasticsearch_java_home=%%PREFIX%%}
+: ${elasticsearch_startup_sleep_time=5}
 
 required_files="${elasticsearch_config}/elasticsearch.yml"
 _pidprefix=/var/run/elasticsearch/elasticsearch
@@ -46,6 +48,7 @@ command_args="-d --pidfile=${pidfile}"
 
 export ES_PATH_CONF=${elasticsearch_config}
 export JAVA_HOME=${elasticsearch_java_home}
+export ES_STARTUP_SLEEP_TIME=${elasticsearch_startup_sleep_time}
 
 elasticsearch_precmd()
 {
