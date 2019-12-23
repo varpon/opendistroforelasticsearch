@@ -32,7 +32,7 @@ load_rc_config ${name}
 : ${elasticsearch_group=elasticsearch}
 : ${elasticsearch_config=%%PREFIX%%/etc/elasticsearch}
 : ${elasticsearch_login_class=root}
-: ${elasticsearch_java_home=%%PREFIX%%}
+: ${elasticsearch_java_home=%%JAVA_HOME%%}
 : ${elasticsearch_startup_sleep_time=5}
 
 required_files="${elasticsearch_config}/elasticsearch.yml"

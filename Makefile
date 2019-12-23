@@ -26,7 +26,11 @@ USE_RC_SUBR=	elasticsearch
 SHEBANG_FILES=	bin/elasticsearch \
 		bin/elasticsearch-cli \
 		bin/elasticsearch-env \
-		bin/elasticsearch-plugin
+		bin/elasticsearch-keystore \
+		bin/elasticsearch-node \
+		bin/elasticsearch-plugin \
+		bin/elasticsearch-shard \
+		opendistro-tar-install.sh
 
 OPTIONS_DEFINE=	DOCS
 
@@ -36,7 +40,10 @@ CONFIG_FILES=	elasticsearch.yml log4j2.properties jvm.options
 BINS=		elasticsearch \
 		elasticsearch-cli \
 		elasticsearch-env \
-		elasticsearch-plugin
+		elasticsearch-keystore \
+		elasticsearch-node \
+		elasticsearch-plugin \
+		elasticsearch-shard
 
 PORTDOCS=	LICENSE.txt \
 		NOTICE.txt \
@@ -49,15 +56,13 @@ USERS=		${SEARCHUSER}
 GROUPS=		${SEARCHGROUP}
 ETCDIR=		${PREFIX}/etc/elasticsearch
 
-SUB_LIST=	ETCDIR=${ETCDIR} JAVA=${JAVA}
+SUB_LIST=	ETCDIR=${ETCDIR} JAVA=${JAVA} JAVA_HOME=${JAVA_HOME} INSTDIR=${PREFIX}/lib/elasticsearch
 SUB_FILES=	pkg-message
 
 post-patch:
 	${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" ${WRKSRC}/config/elasticsearch.yml
 	${REINPLACE_CMD} -e "s|%%PREFIX%%|${PREFIX}|g" ${WRKSRC}/bin/elasticsearch
 	${RM} ${WRKSRC}/lib/jna-*.jar
-	# ML plugin not supported on FreeBSD
-	${RM} -rf ${WRKSRC}/modules/x-pack/x-pack-ml
 
 do-install:
 	${MKDIR} ${STAGEDIR}${ETCDIR}
@@ -74,10 +79,12 @@ do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/elasticsearch/modules
 	(cd ${WRKSRC}/modules && ${COPYTREE_SHARE} . ${STAGEDIR}${PREFIX}/lib/elasticsearch/modules/)
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/elasticsearch/plugins
+	(cd ${WRKSRC}/plugins && ${COPYTREE_SHARE} . ${STAGEDIR}${PREFIX}/lib/elasticsearch/plugins/)
 	${MKDIR} ${STAGEDIR}${PREFIX}/libexec/elasticsearch
 	${INSTALL} -lrs ${STAGEDIR}${ETCDIR} ${STAGEDIR}${PREFIX}/lib/elasticsearch/config
 	${LN} -s ${JAVASHAREDIR}/classes/jna.jar ${STAGEDIR}${PREFIX}/lib/elasticsearch/lib/jna.jar
 
+	${INSTALL_SCRIPT} ${WRKSRC}/opendistro-tar-install.sh ${STAGEDIR}${PREFIX}/lib/elasticsearch
 do-install-DOCS-on:
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
 .for f in ${PORTDOCS}

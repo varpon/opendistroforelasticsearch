@@ -13,10 +13,3 @@
  #
  # ----------------------------------- Memory -----------------------------------
  #
-@@ -86,3 +88,6 @@
- # Require explicit names when deleting indices:
- #
- #action.destructive_requires_name: true
-+
-+# ml is not supported on FreeBSD
-+xpack.ml.enabled: false
