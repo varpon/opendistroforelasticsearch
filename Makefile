@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	opendistroforelasticsearch
-PORTVERSION=	1.2.0
+PORTVERSION=	1.3.0
 CATEGORIES=	textproc java devel
 MASTER_SITES=	https://d3g5vo6xdbdb9a.cloudfront.net/tarball/opendistro-elasticsearch/
 
