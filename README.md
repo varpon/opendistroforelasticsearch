@@ -4,8 +4,8 @@ FreeBSD port of Open Distro for Elasticsearch.
 
 ## Current status
 
-* `portlint` is happy
-* `poudriere bulk` passed
+* ~~`portlint` is happy~~
+* ~~`poudriere bulk` passed~~
 * the package is being tested
 
 ## TODOs
